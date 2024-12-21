@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Movie Explorer</h1>
+    </header>
+
+    <main id="content" hx-get="/" hx-trigger="initial-load"></main>
+
+    <footer>
+      <p>&copy; 2024 Movie Explorer</p>
+    </footer>
+    <script type="module">
+      import { connectToApi } from "./functions.js";
+      console.log("HERE WE BE");
+      // Initialize the DSPX system
+      // setupDspx().catch(console.error);
+      window.onload = async () => {
+        await connectToApi();
+        console.log("RusTMX setup complete.");
+
+        // Trigger htmx manually after setup
+        const mainContent = document.getElementById("content");
+        htmx.trigger(mainContent, "initial-load");
+      };
+    </script>
+    <script
+      src="https://unpkg.com/htmx.org@2.0.4"
+      integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

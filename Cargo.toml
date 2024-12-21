@@ -1,0 +1,28 @@
+[package]
+name = "rustmx"
+authors = ["Stoic Buddha"]
+publish = false
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1.0.94"
+askama = "0.12.1"
+regex-lite = "0.1.6"
+reqwest = "0.12.9"
+serde = { version = "1.0.216", features = ["serde_derive"] }
+serde_json = "1.0.133"
+url = "2.5.4"
+wasm-bindgen = { version = "0.2", default-features = false }
+wasm-bindgen-futures = "0.4.49"
+web-sys = { version = "0.3.76", features = ["Window", "Storage"] }
+
+[profile.release]
+opt-level = "z"       # Optimize for size
+lto = true            # Link Time Optimization
+codegen-units = 1     # Reduce codegen units to improve LTO effectiveness
+panic = "abort"       # Reduce code size by simplifying panic handling
+strip = true          # Remove debug information

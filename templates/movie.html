@@ -1,0 +1,14 @@
+<section class="movie-details">
+  <div class="back-to-search">
+    <a href="/" hx-get="/search" hx-target="#content" hx-swap="innerHTML"
+      >Back to search</a
+    >
+  </div>
+  <div class="movie-metadata">
+    <div>
+      <h2>{{title}}</h2>
+      <img class="movie-poster" src="{{poster}}" alt="{{title}} poster" />
+    </div>
+    <div><p>{{plot}}</p></div>
+  </div>
+</section>

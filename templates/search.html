@@ -1,0 +1,18 @@
+<section class="search-section">
+  <form
+    id="search-form"
+    hx-post="/search"
+    hx-target=".search-section"
+    hx-swap="outerHTML"
+  >
+    <input
+      type="text"
+      id="search-bar"
+      name="query"
+      value="{{query}}"
+      placeholder="Search for a movie..."
+    />
+    <button type="submit">Search</button>
+  </form>
+  <div id="movie-grid" class="movie-grid">{{results|safe}}</div>
+</section>
