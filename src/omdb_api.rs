@@ -105,7 +105,7 @@ impl OmdbApi {
     pub fn new() -> OmdbApi {
         log("Creating new OmdbApi");
         Self {
-            api_key: "b3abeb9e",
+            api_key: "YOUR_KEY_HERE",
             base_url: "https://www.omdbapi.com/",
         }
     }
